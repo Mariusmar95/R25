@@ -56,7 +56,7 @@ const OrderMenu = () => {
           </span>
         </div>
 
-        {/* Products Grid */}
+        {/* Products */}
 
         <div className="m-6 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {products.map((product) => (

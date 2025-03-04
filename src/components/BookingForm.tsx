@@ -1,7 +1,44 @@
+import { ChangeEvent, useState } from "react";
+
 function BookingForm() {
+  const [values, setValues] = useState({
+    date: "",
+    time: "",
+    numOfPersons: "",
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleCharacterChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+    setValues((prevValues) => ({
+      ...prevValues,
+      [e.target.name]: inputValue,
+    }));
+  };
+
+  const handelNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value.replace(/[^0-9]/g, "");
+    const numericValue =
+      inputValue === "" ? "" : Math.min(Math.max(Number(inputValue), 1), 20);
+    setValues((prevValues) => ({
+      ...prevValues,
+      [e.target.name]: numericValue,
+    }));
+  };
+
+  const handleChanges = (e: ChangeEvent<HTMLInputElement>): void => {
+    setValues({ ...values, [e.target.name]: [e.target.value] });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(values);
+  };
   return (
     <div className="container mx-auto m-8 text-center bg-white p-6 rounded-md shadow-md mb-20">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3 className="text-3xl font-semibold text-center mb-8">
           Book a table
         </h3>
@@ -14,6 +51,8 @@ function BookingForm() {
               Date
             </label>
             <input
+              required
+              onChange={handleChanges}
               type="date"
               id="date"
               name="date"
@@ -23,15 +62,17 @@ function BookingForm() {
           </div>
           <div>
             <label
-              htmlFor="hour"
+              htmlFor="time"
               className="block text-sm font-medium text-gray-700"
             >
               Hour
             </label>
             <input
+              required
+              onChange={handleChanges}
               type="time"
-              id="hour"
-              name="hour"
+              id="time"
+              name="time"
               placeholder="Select a time"
               className="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200 focus:outline-none w-full"
             />
@@ -44,39 +85,15 @@ function BookingForm() {
               Number of Persons
             </label>
             <input
+              value={values.numOfPersons}
+              required
+              onChange={handelNumberChange}
               type="number"
               id="numOfPersons"
               name="numOfPersons"
               placeholder="Enter the number of persons"
               className="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200 focus:outline-none w-full"
             />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Location
-            </label>
-            <div className="flex items-center gap-4 mt-2 justify-center  ">
-              <input type="radio" id="inside" name="location" value="inside" />
-              <label
-                htmlFor="inside"
-                className="text-sm font-medium text-gray-700"
-              >
-                Inside
-              </label>
-
-              <input
-                type="radio"
-                id="outside"
-                name="location"
-                value="outside"
-              />
-              <label
-                htmlFor="outside"
-                className="text-sm font-medium text-gray-700"
-              >
-                Outside
-              </label>
-            </div>
           </div>
         </div>
         <div>
@@ -91,9 +108,13 @@ function BookingForm() {
               Name
             </label>
             <input
+              onChange={handleCharacterChange}
+              value={values.name}
+              required
               type="text"
               id="name"
               name="name"
+              maxLength={30}
               placeholder="Enter your name"
               className="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200 focus:outline-none w-full"
             />
@@ -106,6 +127,8 @@ function BookingForm() {
               E-mail
             </label>
             <input
+              required
+              onChange={handleChanges}
               type="email"
               id="email"
               name="email"
@@ -121,6 +144,8 @@ function BookingForm() {
               Phone number
             </label>
             <input
+              required
+              onChange={handleChanges}
               type="tel"
               id="phone"
               name="phone"
