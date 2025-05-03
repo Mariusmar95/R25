@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Contact from "./Pages/Contact";
 import Booking from "./Pages/Booking";
 import Image from "./Pages/Image";
+import Product from "./Pages/Product";
 
 function App() {
   // const location = useLocation();
@@ -16,10 +17,11 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Menu" element={<Menu />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Booking" element={<Booking />} />
-          <Route path="/Image" element={<Image />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/image" element={<Image />} />
         </Routes>
       </main>
       <Footer />

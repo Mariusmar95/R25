@@ -1,23 +1,32 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import express from "express";
 import { db } from "../config/db";
+
 const router = express.Router();
-router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+// Get all items from menu
+router.get("/", (_req, res) =>{
     try {
-        const [rows] = yield db.query("SELECT * FROM menu_items");
-        res.json(rows);
+      const [rows] = yield db.query("SELECT * FROM menu_items");
+      res.json(rows);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: "Server error" });
     }
-    catch (err) {
-        console.error(err);
-        res.status(500).json({ message: "Server error" });
+});
+
+// Get a single item by id
+router.get("/:id",async (_req,res)=>{
+const {id} = _req.params;
+try{
+    const [rows] = await db.query("SELECT * FROM menu_items WHERE id = ?",[id])
+    if(!rows || (Array.isArray(rows) && rows.length ===0 )){
+        return res.status(404).json({message:"Product not found"})
     }
-}));
+    res.json(rows[0]);
+}
+catch(err){
+    console.log(err);
+    res.status(500).json({message:"Server error"});
+}
+})
+
 export default router;
