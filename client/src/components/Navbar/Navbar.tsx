@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import NavMenu from "./NavMenu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const user = true;
@@ -31,23 +32,24 @@ const Navbar = () => {
     >
       <div className=" h-22  text-white font-medium  text-xl flex justify-between items-center ">
         <div className="flex items-center pl-4 relative w-32 h-28 ">
-          <a href="/">
+          <Link to="/">
             <img src="/src/assets/logo2.png" alt="logo" />
-          </a>
+          </Link>
         </div>
+
         <div className="hidden md:flex items-center gap-16 p-4">
-          <a className="hover:text-yellow-500" href="/">
+          <Link className="hover:text-yellow-500" to="/">
             Home
-          </a>
-          <a className="hover:text-yellow-500" href="Menu">
+          </Link>
+          <Link className="hover:text-yellow-500" to="/menu">
             Menu
-          </a>
-          <a className="hover:text-yellow-500" href="contact">
+          </Link>
+          <Link className="hover:text-yellow-500" to="/contact">
             Contact
-          </a>
-          <a className="hover:text-yellow-500" href="booking">
+          </Link>
+          <Link className="hover:text-yellow-500" to="/booking">
             Booking
-          </a>
+          </Link>
         </div>
 
         <div className="md:hidden">

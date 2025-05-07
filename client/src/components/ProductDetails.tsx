@@ -12,6 +12,7 @@ const ProductDetail: React.FC<ProductDetailsProps> = ({ product }) => {
         alt={product.name}
         className="w-full h-auto mb-6"
       />
+
       <h1 className="text-2xl font-bold">{product.name}</h1>
       <p className="text-lg font-semibold mb-2">${product.price}</p>
       <p className="text-sm text-gray-500">

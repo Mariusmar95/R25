@@ -8,7 +8,7 @@ type ProductCardProps = {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Link to={`/product/${product.id}`}>
+    <Link to={`/menu/${product.id}`}>
       <div className="group relative aspect-square overflow-hidden w-full">
         <div className="h-full w-full">
           <img
