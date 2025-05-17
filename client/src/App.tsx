@@ -5,7 +5,6 @@ import Menu from "./Pages/Menu";
 import Footer from "./components/Footer/Footer";
 import Contact from "./Pages/Contact";
 import Booking from "./Pages/Booking";
-import Image from "./Pages/Image";
 import Product from "./Pages/Product";
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
           <Route path="/menu/:id" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/image" element={<Image />} />
         </Routes>
       </main>
       <Footer />

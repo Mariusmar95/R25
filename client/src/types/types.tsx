@@ -11,3 +11,17 @@ export interface BannerProps {
   imageSrc: string;
   altText?: string;
 }
+
+export interface FirstHomePageSectionProps {
+  imageSrc1: string;
+  imageSrc2: string;
+  altText1?: string;
+  altText2?: string;
+}
+
+export interface ThirdHomePageSectionProps {
+  imageSrc1: string;
+  imageSrc2: string;
+  altText1?: string;
+  altText2?: string;
+}

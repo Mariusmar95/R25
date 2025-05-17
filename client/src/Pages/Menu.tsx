@@ -8,10 +8,9 @@ const OrderMenu = () => {
     useProducts();
 
   return (
-    <div className="relative">
+    <div>
       {/* Banner */}
       <Banner imageSrc="/src/assets/banner4.jpg " />
-
       {/* Menu content container */}
       <div className="container mx-auto px-4 lg:relative">
         {/* Sidebar */}
@@ -20,7 +19,6 @@ const OrderMenu = () => {
           setProducts={setProducts}
           handleFilter={handleFilter}
         />
-
         <div className="flex flex-col lg:flex-row">
           {/* Empty div space sidebar*/}
           <div className="hidden lg:block lg:w-80 lg:flex-shrink-0"></div>
