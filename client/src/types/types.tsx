@@ -25,3 +25,10 @@ export interface ThirdHomePageSectionProps {
   altText1?: string;
   altText2?: string;
 }
+
+export type Testimonial = {
+  id: number;
+  name: string;
+  image: string;
+  text: string;
+};
