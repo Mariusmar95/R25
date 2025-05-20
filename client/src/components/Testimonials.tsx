@@ -41,7 +41,7 @@ function Testimonials() {
   return (
     <div className="flex justify-center items-center bg-gray-50">
       <div className="flex bg-white w-full max-w-4xl">
-        {/* Left - Thumbnail column */}
+        {/* Icons column */}
         <div className="flex flex-col gap-4 pr-6">
           {data.map((item) => (
             <img
@@ -58,7 +58,7 @@ function Testimonials() {
           ))}
         </div>
 
-        {/* Center - Testimonial */}
+        {/* Testimonial text */}
         <div className="flex flex-col flex-1 justify-between">
           {selected && (
             <>
