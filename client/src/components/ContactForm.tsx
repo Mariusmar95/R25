@@ -17,8 +17,18 @@ function ContactForm() {
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      throw new Error();
-      console.log(data);
+      const res = await fetch("http://localhost:3001/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to submit");
+      }
+      const result = await res.json();
+      console.log("Success", result);
     } catch {
       setError("root", {
         message: "Invalid form ",

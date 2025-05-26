@@ -45,7 +45,9 @@ export const useProducts = () => {
     setProducts,
     allProducts,
     error,
+    setError,
     handleFilter,
     loading,
+    setLoading,
   };
 };

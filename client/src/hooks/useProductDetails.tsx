@@ -37,6 +37,8 @@ export const useProductsDetails = () => {
     product,
     setProduct,
     error,
+    setError,
     loading,
+    setLoading,
   };
 };
