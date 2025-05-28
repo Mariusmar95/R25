@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import menuRoutes from "./routes/menu";
 import contactRoutes from "./routes/contact";
+import bookingRoutes from "./routes/booking";
 
 import path from "path";
 
@@ -18,6 +19,7 @@ app.use(express.json());
 
 app.use("/menu", menuRoutes);
 app.use("/contact", contactRoutes);
+app.use("/booking", bookingRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
