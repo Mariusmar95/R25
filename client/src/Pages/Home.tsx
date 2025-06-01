@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <Slider />
-      <div className="mt-20 mb-20 font-custom">
+      <div className="mt-20 font-custom">
         {/* First Section */}
         <FirstHomePageSection
           imageSrc1="/src/assets/section1.jpg "
@@ -32,6 +32,7 @@ function Home() {
         {/* Forth Section */}
         <ForthHomePageSection />
         <Testimonials />
+        <Map />
       </div>
     </>
   );

@@ -4,7 +4,8 @@ export type Product = {
   image_url: string;
   price: number;
   type: string | string[];
-  ingredients: string[];
+  ingredients?: string[];
+  description?: string[];
 };
 
 export interface BannerProps {

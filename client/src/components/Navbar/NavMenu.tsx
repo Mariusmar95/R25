@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -6,36 +7,46 @@ import CloseIcon from "@mui/icons-material/Close";
 const NavMenu = () => {
   const [open, setOpen] = useState(false);
   const user = false;
+
   return (
     <div>
-      {!open ? (
-        <MenuIcon onClick={() => setOpen(true)} />
-      ) : (
-        <CloseIcon onClick={() => setOpen(false)} />
-      )}
+      <div className="top-4 right-4 z-50 fixed">
+        {!open ? (
+          <MenuIcon
+            onClick={() => setOpen(true)}
+            className="text-white cursor-pointer"
+            fontSize="large"
+          />
+        ) : (
+          <CloseIcon
+            onClick={() => setOpen(false)}
+            className="text-white cursor-pointer"
+            fontSize="large"
+          />
+        )}
+      </div>
+
       {open && (
-        <div className="bg-blue-500 absolute left-0 top-0 w-full h-[100vh] flex justify-center items-center flex-col gap-8 z-10 ">
-          <a href="/" onClick={() => setOpen(false)}>
+        <div className="top-0 left-0 z-40 fixed flex flex-col justify-center items-center gap-8 bg-blue-500 w-full h-[100vh]">
+          <Link to="/" onClick={() => setOpen(false)}>
             Lemon
-          </a>
-          <a href="menu" onClick={() => setOpen(false)}>
+          </Link>
+          <Link to="/menu" onClick={() => setOpen(false)}>
             Menu
-          </a>
-          <a href="contact" onClick={() => setOpen(false)}>
+          </Link>
+          <Link to="/contact" onClick={() => setOpen(false)}>
             Contact
-          </a>
+          </Link>
           {!user ? (
-            <a href="login" onClick={() => setOpen(false)}>
+            <Link to="/login" onClick={() => setOpen(false)}>
               Login
-            </a>
+            </Link>
           ) : (
-            <a href="orders" onClick={() => setOpen(false)}>
-              Order
-            </a>
+            <Link to="/orders" onClick={() => setOpen(false)}>
+              Orders
+            </Link>
           )}
-          <a href="cart" onClick={() => setOpen(false)}>
-            <Cart />
-          </a>
+          <Cart />
         </div>
       )}
     </div>

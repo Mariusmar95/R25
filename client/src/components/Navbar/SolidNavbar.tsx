@@ -1,34 +1,12 @@
-import { useState, useEffect } from "react";
 import NavMenu from "./NavMenu";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const user = true;
-  const [navbarSolid, setNavbarSolid] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setNavbarSolid(true);
-      } else {
-        setNavbarSolid(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
-    <nav
-      className={`fixed w-full z-50 ${
-        navbarSolid ? "bg-black" : "bg-transparent"
-      } transition-all duration-300 ease-in-out`}
-    >
+    <nav className="fixed bg-black w-full">
       <div className="flex justify-between items-center h-22 font-montserrat font-medium text-white text-xl">
         <div className="relative flex items-center pl-4 w-32 h-28">
           <Link to="/">

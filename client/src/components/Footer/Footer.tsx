@@ -1,24 +1,40 @@
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className="bg-bl px-4 md:px-8 py-10 md:py-32 text-white">
+    <div className="bg-bl px-4 py-10 md:py-32 text-white">
       <div className="flex md:flex-row flex-col justify-center items-start gap-16 md:gap-40 mx-auto w-full max-w-6xl">
-        {/* Links Column */}
+        {/*Links column*/}
         <div className="flex flex-col gap-2 w-full md:w-auto md:text-left text-center">
-          <Link to="/">Home</Link>
-          <Link to="/menu">Menu</Link>
-          <Link to="/booking">Booking</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/terms">Terms of Use</Link>
-          <Link to="/confidentiality">Confidentiality Policy</Link>
-          <Link to="/cookies">Cookies</Link>
+          <Link className="hover:text-sky-700" to="/">
+            Home
+          </Link>
+          <Link className="hover:text-sky-700" to="/menu">
+            Menu
+          </Link>
+          <Link className="hover:text-sky-700" to="/booking">
+            Booking
+          </Link>
+          <Link className="hover:text-sky-700" to="/contact">
+            Contact
+          </Link>
+          <Link className="hover:text-sky-700" to="/terms">
+            Terms of Use
+          </Link>
+          <Link className="hover:text-sky-700" to="/confidentiality">
+            Confidentiality Policy
+          </Link>
+          <Link className="hover:text-sky-700" to="/cookies">
+            Cookies
+          </Link>
         </div>
 
-        {/* Order button and social  */}
+        {/*Order button and social*/}
         <div className="flex flex-col items-center md:items-start gap-4 w-full md:w-auto md:text-left text-center">
-          <button className="flex-shrink-0 px-4 py-2 border border-blu rounded min-w-[10rem] text-blu">
-            Order Now
-          </button>
+          <Link to="/menu">
+            <button className="flex-shrink-0 px-4 py-2 border border-blu rounded min-w-[10rem] text-blu">
+              Order Now
+            </button>
+          </Link>
           <h4 className="w-full text-center">Follow us at</h4>
           <div className="flex justify-center md:justify-start gap-4">
             <a href="https://www.facebook.com/">
@@ -33,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Info */}
+        {/*Contact Info*/}
         <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-auto md:text-left text-center">
           <h4 className="text-blu">+73218942102418</h4>
           <h4>Str. Huston bac nr.213</h4>
@@ -48,7 +64,7 @@ const Footer = () => {
         </a>
       </div>
 
-      {/* Footer Text */}
+      {/*Footer Text*/}
       <div className="flex justify-center mx-auto mt-8 max-w-6xl text-sm text-center">
         © Lemon 2025. All rights reserved.
       </div>

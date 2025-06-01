@@ -3,22 +3,25 @@ import { ChangeEvent, useState } from "react";
 type BookingFormType = {
   date: string;
   time: string;
-  numOfPersons: number;
+  numOfPersons: string;
   name: string;
   email: string;
-  phone: number;
+  phone: string;
 };
 
 function BookingForm() {
   const [formValues, setFormValues] = useState<BookingFormType>({
     date: "",
     time: "",
-    numOfPersons: 0,
+    numOfPersons: "",
     name: "",
     email: "",
-    phone: 0,
+    phone: "",
   });
 
+  {
+    /*Allows only characters */
+  }
   const handleCharacterChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value.replace(/[^a-zA-Z\s]/g, "");
     setFormValues((prevValues) => ({
@@ -26,11 +29,16 @@ function BookingForm() {
       [e.target.name]: inputValue,
     }));
   };
-
-  const handelNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value.replace(/[^0-9]/g, "");
-    const numericValue =
-      inputValue === "" ? "" : Math.min(Math.max(Number(inputValue), 1), 20);
+  {
+    /*Numbers only & between 1-20*/
+  }
+  const handleNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value.replace(/\D/g, "");
+    let numericValue = inputValue.slice(0, 20);
+    numericValue =
+      e.target.name === "numOfPersons" && numericValue !== ""
+        ? Math.min(Math.max(Number(numericValue), 1), 20).toString()
+        : numericValue;
     setFormValues((prevValues) => ({
       ...prevValues,
       [e.target.name]: numericValue,
@@ -41,6 +49,9 @@ function BookingForm() {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
+  {
+    /*Send to db */
+  }
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -118,7 +129,7 @@ function BookingForm() {
             <input
               value={formValues.numOfPersons}
               required
-              onChange={handelNumberChange}
+              onChange={handleNumberChange}
               type="number"
               id="numOfPersons"
               name="numOfPersons"
@@ -178,7 +189,7 @@ function BookingForm() {
             <input
               required
               value={formValues.phone}
-              onChange={handleChanges}
+              onChange={handleNumberChange}
               type="tel"
               id="phone"
               name="phone"
