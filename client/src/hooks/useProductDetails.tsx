@@ -13,17 +13,9 @@ export const useProductsDetails = () => {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(`http://localhost:3001/menu/${id}`);
-        console.log("Product data received:", res.data);
-        console.log(
-          "Product data received:",
-          console.log("key in product:", Object.keys(res.data)),
-          res.data.image_url
-        );
         setProduct(res.data);
-        console.log("Current product ID:", id);
         setError(null);
       } catch (err) {
-        console.log("Error fetching data", err);
         setError("Failed to load products");
       } finally {
         setLoading(false);

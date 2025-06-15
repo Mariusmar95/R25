@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-} from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 import { Product } from "../types/types";
 
 type CartItem = Product & {
@@ -26,30 +20,17 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  // Debug: Log cart changes
-  useEffect(() => {
-    console.log("Cart updated:", cart);
-    console.log(
-      "Total items:",
-      cart.reduce((sum, item) => sum + item.quantity, 0)
-    );
-  }, [cart]);
-
   const addToCart = (product: Product) => {
-    console.log("addToCart called with:", product);
-
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
 
       if (existing) {
-        console.log("Item exists, updating quantity");
         return prevCart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-        console.log("New item, adding to cart");
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });

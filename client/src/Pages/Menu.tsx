@@ -8,23 +8,24 @@ const OrderMenu = () => {
     useProducts();
 
   return (
-    <div>
-      {/* Banner */}
-      <Banner imageSrc="/src/assets/banner4.jpg " />
-      {/* Menu content container */}
-      <div className="container mx-auto px-4 lg:relative">
-        {/* Sidebar */}
-        <MenuFilter
-          allProducts={allProducts}
-          setProducts={setProducts}
-          handleFilter={handleFilter}
-        />
-        <div className="flex flex-col lg:flex-row">
-          {/* Empty div space sidebar*/}
-          <div className="hidden lg:block lg:w-80 lg:flex-shrink-0"></div>
+    <div className="bg-gray-50 min-h-screen">
+      {/*Banner*/}
+      <Banner imageSrc="/src/assets/banner4.jpg" />
 
-          {/* Menu Items Section */}
-          <ProductGrid products={products} error={error} loading={loading} />
+      {/*Menu container*/}
+      <div className="mx-auto px-4 py-8 container">
+        <div className="flex lg:flex-row flex-col gap-6">
+          {/*Sidebar*/}
+          <MenuFilter
+            allProducts={allProducts}
+            setProducts={setProducts}
+            handleFilter={handleFilter}
+          />
+
+          {/*Menu Items Section*/}
+          <div className="z-10 flex-1">
+            <ProductGrid products={products} error={error} loading={loading} />
+          </div>
         </div>
       </div>
     </div>

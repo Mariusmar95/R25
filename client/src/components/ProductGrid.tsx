@@ -1,6 +1,8 @@
 import React from "react";
 import { Product } from "../types/types";
 import ProductCard from "./ProductCard";
+import LoadingProducts from "./ErrorsAndConfirmation/LoadingProducts";
+import ErrorLoadingProducts from "./ErrorsAndConfirmation/ErrorLoadingProducts";
 
 type ProductGridProps = {
   products: Product[];
@@ -14,14 +16,23 @@ const ProductGrid: React.FC<ProductGridProps> = ({
   loading,
 }) => {
   if (error) {
-    return <p className="my-4 text-red-500">{error}</p>;
+    return <ErrorLoadingProducts error={error} />;
   }
+
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex-grow">
+        <div className="gap-x-2 gap-y-2 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 py-6">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <LoadingProducts key={index} />
+          ))}
+        </div>
+      </div>
+    );
   }
   return (
     <div className="flex-grow">
-      <div className="py-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-2">
+      <div className="gap-x-2 gap-y-2 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 py-6">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

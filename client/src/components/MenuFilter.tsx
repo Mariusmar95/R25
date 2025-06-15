@@ -13,56 +13,69 @@ const MenuFilter: React.FC<MenuFilterProps> = ({
   handleFilter,
 }) => {
   return (
-    <div className="lg:absolute lg:-top-5 lg:left-4 w-full lg:w-80 lg:h-[1000px] md:h-[600px] h-auto bg-white p-4 overflow-y-auto z-10">
-      <h2 className="flex justify-center p-5">Menu</h2>
-      <div className="flex flex-col justify-between lg:justify-start">
-        <div
-          onClick={() => setProducts(allProducts)}
-          className="cursor-pointer text-black hover:text-blue-700 mr-4 lg:mb-1"
-        >
-          All
-        </div>
-        <div>
-          <div
-            onClick={() => handleFilter("Main")}
-            className="cursor-pointer text-black mr-4 lg:mr-0 lg:mb-1"
-          >
-            Main
-          </div>
-          <ul className="flex flex-col ml-6">
-            {["Salads", "Pasta", "Burgers & Wraps", "Fish"].map(
-              (item, index) => (
-                <li
-                  key={index}
-                  className="relative pl-6 mb-2 cursor-pointer hover:text-blue-700"
-                  onClick={() => handleFilter(item)}
-                >
-                  <span className="absolute left-0 top-1.5 w-2 h-2 rounded-full border-2 border-black bg-white"></span>
-                  {item}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
+    <div className="lg:top-6 lg:sticky bg-white shadow-lg border border-gray-200 rounded-lg w-full lg:w-80 h-fit">
+      <div className="p-6">
+        <h2 className="mb-6 font-semibold text-gray-800 text-xl text-center">
+          Menu
+        </h2>
 
-        <div
-          onClick={() => handleFilter("Specialties")}
-          className="cursor-pointer text-black hover:text-blue-700 mr-4 lg:mb-1"
-        >
-          Specialties
-        </div>
-        <div
-          onClick={() => handleFilter("Desserts")}
-          className="cursor-pointer text-black hover:text-blue-700 mr-4 lg:mb-1"
-        >
-          Desserts
-        </div>
-        <div
-          onClick={() => handleFilter("Drinks")}
-          className="cursor-pointer text-black hover:text-blue-700 lg:mb-1"
-        >
-          Drinks
-        </div>
+        <nav className="space-y-4">
+          {/*All Items*/}
+          <div
+            onClick={() => setProducts(allProducts)}
+            className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+          >
+            All Items
+          </div>
+
+          {/*Main Category*/}
+          <div>
+            <div
+              onClick={() => handleFilter("Main")}
+              className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+            >
+              Main Dishes
+            </div>
+
+            {/*Subcategories*/}
+            <ul className="space-y-2 mt-2 ml-4">
+              {["Salads", "Pasta", "Burgers & Wraps", "Fish"].map(
+                (item, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center hover:bg-blue-50 px-3 py-2 rounded-md hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+                    onClick={() => handleFilter(item)}
+                  >
+                    <div className="flex-shrink-0 bg-white mr-3 border-2 border-gray-400 rounded-full w-2 h-2"></div>
+                    <span className="text-gray-600 text-sm">{item}</span>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+
+          {/*Other Categories*/}
+          <div
+            onClick={() => handleFilter("Specialties")}
+            className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+          >
+            Specialties
+          </div>
+
+          <div
+            onClick={() => handleFilter("Desserts")}
+            className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+          >
+            Desserts
+          </div>
+
+          <div
+            onClick={() => handleFilter("Drinks")}
+            className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+          >
+            Drinks
+          </div>
+        </nav>
       </div>
     </div>
   );

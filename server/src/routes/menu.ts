@@ -10,7 +10,6 @@ router.get("/", async (_req, res) => {
     const [rows] = await db.query("SELECT * FROM menu_items");
     res.json(rows);
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -25,7 +24,6 @@ router.get("/:id", async (_req, res) => {
     );
     res.json(rows[0]);
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });

@@ -18,7 +18,6 @@ export const useProducts = () => {
         setProducts(res.data);
         setAllProducts(res.data);
       } catch (err) {
-        console.error("Error fetching data:", err);
         setError("Failed to load products");
       } finally {
         setLoading(false);

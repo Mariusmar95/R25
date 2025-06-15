@@ -41,22 +41,23 @@ const Slider = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen relative">
-      <div className="w-full h-full relative flex-1">
+    <div className="relative w-full h-screen">
+      <div className="z-10 absolute inset-0 bg-gradient-to-t from-transparent via-slate-900/20 to-slate-900/60 pointer-events-none"></div>
+      <div className="relative flex-1 w-full h-full">
         <img
-          className="object-cover w-full h-full"
+          className="w-full h-full object-cover"
           src={data[slide].image}
           alt="slide"
         />
-        <div className="absolute flex flex-col justify-center items-end top-0 bottom-0 right-0 mr-6">
+        <div className="top-0 right-0 bottom-0 absolute flex flex-col justify-center items-end mr-6">
           <button
-            className="bg-black text-white w-10 h-10 mb-4 flex items-center justify-center opacity-70 rounded-full"
+            className="flex justify-center items-center bg-black opacity-70 mb-4 rounded-full w-10 h-10 text-white"
             onClick={handleNextSlide}
           >
             <ArrowForwardIosIcon />
           </button>
           <button
-            className="bg-black text-white w-10 h-10 flex items-center justify-center opacity-70 rounded-full"
+            className="flex justify-center items-center bg-black opacity-70 rounded-full w-10 h-10 text-white"
             onClick={handlePreviousSlide}
           >
             <ArrowBackIosIcon />

@@ -1,5 +1,5 @@
 import { useProductsDetails } from "../hooks/useProductDetails";
-import ProductDetailPage from "../components/ProductDetailsPage";
+import ProductDetailPage from "./ProductDetailsPage";
 
 const Product = () => {
   const { product, error } = useProductsDetails();

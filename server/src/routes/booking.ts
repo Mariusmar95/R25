@@ -12,7 +12,6 @@ router.post("/", async (req, res) => {
     );
     res.status(201).json({ message: "Booking post successful" });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });

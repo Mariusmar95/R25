@@ -9,6 +9,17 @@ import Contact from "./Pages/Contact";
 import Booking from "./Pages/Booking";
 import Product from "./Pages/Product";
 import Orders from "./Pages/Orders";
+import { useEffect } from "react";
+
+const ScrollFromTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   const location = useLocation();
@@ -20,6 +31,7 @@ function App() {
       {isMenuProduct ? <SolidNavbar /> : <Navbar />}
 
       <main className="flex-grow">
+        <ScrollFromTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
