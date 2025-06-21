@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center h-22 font-montserrat font-medium text-white text-xl">
         <div className="relative flex items-center pl-4 w-32 h-28">
           <Link to="/">
-            <img src="/src/assets/logo2.png" alt="logo" />
+            <img src="/logo2.png" alt="logo" />
           </Link>
         </div>
 

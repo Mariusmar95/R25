@@ -6,18 +6,18 @@ const data = [
   {
     id: 1,
     name: "slide1",
-    image: "/src/assets/slide1.jpg",
+    image: "/slide1.jpg",
   },
 
   {
     id: 2,
     name: "slide2",
-    image: "/src/assets/slide2.jpg",
+    image: "/slide2.jpg",
   },
   {
     id: 3,
     name: "slide3",
-    image: "/src/assets/slide3.jpg",
+    image: "/slide3.jpg",
   },
 ];
 

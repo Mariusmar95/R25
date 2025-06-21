@@ -21,107 +21,105 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 pt-36 pb-20 min-h-screen">
+    <div className="bg-gray-50 pt-36 pb-20 min-h-screen">
       <div className="z-10 relative">
-        {/* Back to Menu Button */}
+        {/*Back to Menu Button*/}
         <div className="mx-auto mb-10 px-6 max-w-7xl">
           <Link
             to="/menu"
-            className="group inline-flex items-center gap-3 bg-white/80 hover:bg-white shadow-lg hover:shadow-xl backdrop-blur-sm px-6 py-3 border border-white/50 hover:border-blue-200 rounded-full text-gray-700 hover:text-blue-600 transition-all hover:-translate-y-0.5 duration-300 transform"
+            className="group inline-flex items-center gap-3 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg px-6 py-3 border border-gray-200 hover:border-gray-300 rounded-xl text-gray-600 hover:text-gray-800 transition-all duration-200"
           >
-            <div className="bg-gray-100 group-hover:bg-blue-100 p-1 rounded-full transition-colors duration-300">
-              <ChevronLeftIcon />
+            <div className="bg-gray-100 group-hover:bg-gray-200 p-1.5 rounded-lg transition-colors duration-200">
+              <ChevronLeftIcon className="w-4 h-4" />
             </div>
-            <span className="font-semibold text-sm tracking-wide">
-              Back to Menu
-            </span>
+            <span className="font-medium text-sm">Back to Menu</span>
           </Link>
         </div>
 
         {/*Top Border*/}
-        <div className="relative mx-auto mb-16 px-6 max-w-7xl">
-          <div className="bg-gradient-to-r from-transparent via-gray-300/50 to-transparent h-px"></div>
+        <div className="relative mx-auto mb-12 px-6 max-w-7xl">
+          <div className="bg-gray-200 h-px"></div>
           <div className="top-1/2 left-1/2 absolute px-4 -translate-x-1/2 -translate-y-1/2 transform">
-            <div className="bg-blue-400 rounded-full w-2 h-2"></div>
+            <div className="bg-gray-800 rounded-full w-2 h-2"></div>
           </div>
         </div>
 
         {/*Card*/}
         <div className="mx-auto px-6 max-w-7xl">
-          <div className="bg-white/90 shadow-2xl backdrop-blur-sm mx-auto border border-white/30 rounded-3xl max-w-6xl overflow-hidden">
+          <div className="bg-white shadow-lg mx-auto border border-gray-100 rounded-2xl max-w-6xl overflow-hidden">
             <div className="flex lg:flex-row flex-col">
               {/*Image*/}
-              <div className="relative lg:w-1/2 overflow-hidden">
-                <div className="group relative h-[400px] lg:h-[700px]">
+              <div className="relative lg:w-1/2">
+                <div className="group relative h-[400px] lg:h-[600px]">
                   <img
                     src={`http://localhost:3001/public${product.image_url}`}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
+
               {/*Details*/}
-              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12 lg:w-1/2">
+              <div className="flex flex-col justify-center p-8 lg:p-12 lg:w-1/2">
                 <div className="space-y-8">
-                  {/*Header*/}
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full w-16 h-1"></div>
-                      <div className="font-semibold text-gray-500 text-xs uppercase tracking-wider">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="bg-gray-800 rounded-full w-12 h-0.5"></div>
+                      <span className="font-medium text-gray-500 text-xs uppercase tracking-wide">
                         Featured Dish
-                      </div>
+                      </span>
                     </div>
-                    <h1 className="font-bold text-gray-900 text-4xl lg:text-5xl xl:text-6xl leading-tight">
+                    <h1 className="font-bold text-gray-900 text-3xl lg:text-4xl xl:text-5xl leading-tight">
                       {product.name}
                     </h1>
                   </div>
+
                   {/*Price*/}
                   <div className="relative">
-                    <div className="group inline-block relative">
-                      <div className="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 shadow-2xl hover:shadow-3xl px-8 py-4 rounded-2xl group-hover:scale-105 transition-all duration-300 transform">
-                        <div className="flex items-center gap-3">
-                          <span className="font-bold text-white text-3xl lg:text-4xl">
+                    <div className="inline-block">
+                      <div className="bg-gray-900 hover:bg-gray-800 shadow-lg px-6 py-3 rounded-xl transition-colors duration-200">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-white text-2xl lg:text-3xl">
                             ${product.price}
                           </span>
-                          <div className="text-green-100 text-sm">
-                            <div className="font-medium">Per serving</div>
-                          </div>
+                          <span className="text-gray-300 text-sm">
+                            per serving
+                          </span>
                         </div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 pointer-events-none"></div>
                     </div>
                   </div>
-                  {/*Ingredients*/}
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <div className="flex justify-center items-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full w-8 h-8">
-                        <WorkspacePremiumIcon />
-                      </div>
-                      <h3 className="font-bold text-gray-800 text-xl lg:text-2xl">
-                        Premium Ingredients
-                      </h3>
-                    </div>
 
-                    <div className="group relative">
-                      <div className="bg-gradient-to-br from-gray-50 to-blue-50/50 p-8 border-2 border-gray-100 hover:border-blue-200 rounded-2xl transition-all duration-300">
-                        <p className="font-medium text-gray-700 text-lg leading-relaxed">
+                  {/*Ingredients*/}
+                  {product.ingredients && (
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex justify-center items-center bg-gray-800 rounded-lg w-8 h-8">
+                          <WorkspacePremiumIcon className="w-4 h-4 text-white" />
+                        </div>
+                        <h3 className="font-semibold text-gray-800 text-lg lg:text-xl">
+                          Premium Ingredients
+                        </h3>
+                      </div>
+
+                      <div className="bg-gray-50 hover:bg-gray-100 p-6 border border-gray-100 rounded-xl transition-colors duration-200">
+                        <p className="font-normal text-gray-700 text-base leading-relaxed">
                           {product.ingredients}
                         </p>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 pointer-events-none"></div>
                     </div>
-                  </div>
-                  {/*Action Buttons*/}
-                  <div className="flex sm:flex-row flex-col gap-4 pt-8">
+                  )}
+
+                  {/*Add to Cart button */}
+                  <div className="pt-6">
                     <button
                       onClick={handleAddToCart}
-                      className="group relative flex-1 bg-gradient-to-r from-blue-600 hover:from-blue-700 via-indigo-600 hover:via-indigo-700 to-purple-600 hover:to-purple-700 shadow-2xl hover:shadow-3xl px-8 py-4 rounded-2xl font-bold text-white text-lg transition-all hover:-translate-y-1 duration-300 transform"
+                      className="group bg-gray-900 hover:bg-gray-800 shadow-lg hover:shadow-xl px-8 py-4 rounded-xl w-full sm:w-auto font-semibold text-white text-base transition-all hover:-translate-y-0.5 duration-200 transform"
                     >
-                      <span className="z-10 relative flex justify-center items-center gap-3">
-                        <ShoppingCartIcon />
+                      <span className="flex justify-center items-center gap-3">
+                        <ShoppingCartIcon className="w-5 h-5" />
                         Add to Cart
                       </span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 rounded-2xl -skew-x-12 transition-transform -translate-x-full group-hover:translate-x-full duration-1000 transform"></div>
                     </button>
                   </div>
                 </div>

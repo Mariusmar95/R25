@@ -10,6 +10,7 @@ import Booking from "./Pages/Booking";
 import Product from "./Pages/Product";
 import Orders from "./Pages/Orders";
 import { useEffect } from "react";
+import About from "./Pages/About";
 
 const ScrollFromTop = () => {
   const { pathname } = useLocation();
@@ -27,22 +28,26 @@ function App() {
     /^\/menu\/\d+$/.test(location.pathname) || location.pathname === "/orders";
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {isMenuProduct ? <SolidNavbar /> : <Navbar />}
+    <>
+      {" "}
+      <ScrollFromTop />
+      <div className="flex flex-col min-h-screen">
+        {isMenuProduct ? <SolidNavbar /> : <Navbar />}
 
-      <main className="flex-grow">
-        <ScrollFromTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/menu/:id" element={<Product />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/orders" element={<Orders />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/menu/:id" element={<Product />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 

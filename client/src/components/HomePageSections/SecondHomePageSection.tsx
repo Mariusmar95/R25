@@ -75,11 +75,11 @@ function SecondHomePageSection() {
               {/*Button*/}
               <div className="pt-6">
                 <Link
-                  to="/"
+                  to="/menu"
                   className="inline-flex items-center gap-4 text-white hover:text-cyan-400 text-lg lg:text-xl transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 bg-gradient-to-r from-cyan-500/20 hover:from-cyan-500/30 to-blue-500/20 hover:to-blue-500/30 backdrop-blur-sm px-6 py-3 border border-cyan-400/30 hover:border-cyan-400/50 rounded-xl hover:scale-105 transition-all duration-300 transform">
-                    <button className="font-semibold">See everything</button>
+                    <button className="font-semibold">See Menu</button>
                   </div>
                 </Link>
               </div>
@@ -91,7 +91,7 @@ function SecondHomePageSection() {
           <div className="z-10 absolute inset-0 bg-gradient-to-l from-transparent via-slate-900/20 to-slate-900/80"></div>
           <img
             className="w-full h-full object-cover"
-            src="/src/assets/section1.jpg"
+            src="/section1.jpg"
             alt="Culinary artistry and geometric presentation"
           />
         </div>

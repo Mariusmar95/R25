@@ -30,12 +30,17 @@ export const useProducts = () => {
   {
     /* Filter sidebar menu items*/
   }
-  const handleFilter = (type: string) => {
-    const filteredProducts = allProducts.filter((product) =>
-      Array.isArray(product.type)
-        ? product.type.includes(type)
-        : product.type === type
-    );
+  const handleFilter = (filterType: string) => {
+    const filteredProducts = allProducts.filter((product) => {
+      let productTypes: string[] = [];
+      if (typeof product.type === "string") {
+        productTypes = product.type.split(",").map((item) => item.trim());
+      } else if (Array.isArray(product.type)) {
+        productTypes = product.type;
+      }
+      return productTypes.includes(filterType);
+    });
+
     setProducts(filteredProducts);
   };
 

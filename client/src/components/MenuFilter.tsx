@@ -25,7 +25,7 @@ const MenuFilter: React.FC<MenuFilterProps> = ({
             onClick={() => setProducts(allProducts)}
             className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
           >
-            All Items
+            All dishes
           </div>
 
           {/*Main Category*/}
@@ -39,7 +39,7 @@ const MenuFilter: React.FC<MenuFilterProps> = ({
 
             {/*Subcategories*/}
             <ul className="space-y-2 mt-2 ml-4">
-              {["Salads", "Pasta", "Burgers & Wraps", "Fish"].map(
+              {["Salads", "Pasta", "Burgers", "Wraps", "Fish"].map(
                 (item, index) => (
                   <li
                     key={index}
@@ -63,7 +63,7 @@ const MenuFilter: React.FC<MenuFilterProps> = ({
           </div>
 
           <div
-            onClick={() => handleFilter("Desserts")}
+            onClick={() => handleFilter("Dessert")}
             className="hover:bg-blue-50 px-3 py-2 rounded-md font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
           >
             Desserts

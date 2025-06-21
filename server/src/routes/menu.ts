@@ -5,7 +5,7 @@ import { Product } from "../types/types";
 
 const router = express.Router();
 
-router.get("/", async (_req, res) => {
+router.get("/", async (req, res) => {
   try {
     const [rows] = await db.query("SELECT * FROM menu_items");
     res.json(rows);
@@ -14,10 +14,10 @@ router.get("/", async (_req, res) => {
   }
 });
 
-router.get("/:id", async (_req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const { id } = _req.params;
-    // console.log(_req.query.params);
+    const { id } = req.params;
+    // console.log(req.query.params);
     const [rows] = await db.query<Product[] & RowDataPacket[]>(
       "SELECT * FROM menu_items WHERE id = ?",
       [id]

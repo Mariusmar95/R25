@@ -184,7 +184,7 @@ function BookingForm() {
                       name="numOfPersons"
                       min="1"
                       max="20"
-                      placeholder="2"
+                      placeholder="1"
                       className="bg-slate-50/50 focus:bg-white px-4 py-4 border-2 border-slate-200 focus:border-blue-500 rounded-xl focus:outline-none w-full text-slate-800 transition-all duration-300 placeholder-slate-400"
                     />
                     <div className="top-1/2 right-8 absolute text-slate-800 -translate-y-1/2 transform">

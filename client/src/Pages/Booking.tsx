@@ -4,7 +4,7 @@ import BookingForm from "../components/BookingForm";
 const Booking = () => {
   return (
     <>
-      <Banner imageSrc="/src/assets/banner2.jpg " />
+      <Banner imageSrc="/banner2.jpg " />
       <BookingForm />
     </>
   );

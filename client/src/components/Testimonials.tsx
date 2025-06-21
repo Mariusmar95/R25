@@ -4,31 +4,31 @@ const data = [
   {
     id: 1,
     name: "Emily Rose",
-    image: "/src/assets/test1.jpg",
+    image: "/test1.jpg",
     text: "The food was simply amazing! I loved every bite.",
   },
   {
     id: 2,
     name: "James Carter",
-    image: "/src/assets/test2.jpg",
+    image: "/test2.jpg",
     text: "Exceptional service and a lovely atmosphere.",
   },
   {
     id: 3,
     name: "Ava Thompson",
-    image: "/src/assets/test3.jpg",
+    image: "/test3.jpg",
     text: "One of the best dining experiences I’ve ever had.",
   },
   {
     id: 4,
     name: "Liam Johnson",
-    image: "/src/assets/test4.jpg",
+    image: "/test4.jpg",
     text: "A perfect spot for a family dinner. Highly recommend!",
   },
   {
     id: 5,
     name: "Sophia Lee",
-    image: "/src/assets/test5.jpg",
+    image: "/test5.jpg",
     text: "Fresh ingredients, friendly staff, and quick service.",
   },
 ];
@@ -52,6 +52,7 @@ function Testimonials() {
         </h1>
         <div className="flex lg:flex-row flex-col items-center gap-8 lg:gap-0 w-full">
           <div className="flex flex-row lg:flex-col justify-center lg:justify-start items-center gap-3 sm:gap-4 order-2 lg:order-1 lg:pr-6">
+            {/*Images, Text map */}
             <div className="flex flex-row lg:flex-col gap-3 sm:gap-4">
               {data.map((item) => (
                 <img
@@ -68,6 +69,7 @@ function Testimonials() {
               ))}
             </div>
           </div>
+          {/*Opinion*/}
           <div className="flex flex-col flex-1 justify-center items-center order-1 lg:order-2 px-4 lg:px-8 text-center">
             {selected && (
               <>

@@ -5,7 +5,7 @@ import Map from "../components/Map";
 function Contact() {
   return (
     <>
-      <Banner imageSrc="/src/assets/banner3.jpg " />
+      <Banner imageSrc="/banner3.jpg " />
       <ContactForm />
       <div>
         <Map />

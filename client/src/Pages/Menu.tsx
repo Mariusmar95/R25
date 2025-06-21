@@ -10,7 +10,7 @@ const OrderMenu = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/*Banner*/}
-      <Banner imageSrc="/src/assets/banner4.jpg" />
+      <Banner imageSrc="/banner4.jpg" />
 
       {/*Menu container*/}
       <div className="mx-auto px-4 py-8 container">
